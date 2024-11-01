@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luck</title>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Keania+One|Bangers" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body id="whole">
+    <h1 id='title'>Mom Rater</h1>
+    <h2 id='bluck'></h2>
+    <p id="info">Tap on the screen to get the answer</p>
+    
+    <script>
+      var going = false
+      
+      var timer;
+      
+      var avengers = [
+        'WORST MOM EVER!!!',
+        'SUPER BAD MOM!!',
+        'BAD MOM!',
+        'DECENT MOM.',
+        'GOOD MOM!',
+        'GREAT MOM!',
+        'AWESOME MOM!',
+        'SUPER GREAT MOM!!',
+        'BEST MOM EVER!!!',
+      ];
+
+      document.getElementById("bluck").innerHTML = avengers[7];
+
+      function switchHero(){
+        var total = avengers.length;
+        var maxIndex = total - 1;
+        var r = Math.round(Math.random()* maxIndex);
+
+        document.getElementById("bluck").innerHTML = avengers[r];
+      }
+      
+
+      //var timer = setInterval(switchHero, 5);
+
+      function stop(){
+        clearInterval (timer);
+      }
+      
+     function checkKey(event) {
+        var keyPressed = event.originalEvent.code;
+        if (keyPressed == "Space" && going == true) {
+          
+
+          stop();
+          going = false
+        }
+       
+        else if (keyPressed == "Space" && going == false){
+          timer = setInterval(switchHero, 5);
+          going = true
+        }
+     }
+      $(document).keydown(checkKey);
+      
+      var everything = document.getElementById('whole');
+      
+      everything.addEventListener('click', function handleClick() {
+        if (going == false){
+          timer = setInterval(switchHero, 5);
+          going = true    
+        }
+        
+        else if (going == true){
+          stop();
+          going = false
+        }
+      });
+    </script>
+</body>
+</html>

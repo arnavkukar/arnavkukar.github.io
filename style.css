@@ -1,0 +1,127 @@
+/* Basic styles */
+.atma-regular {
+    font-family: "Atma", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Atma", system-ui;
+    margin: 0;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation-name: color;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes color{
+    from {background-color: rgb(250, 210, 255);}
+    to {background-color: rgb(255, 153, 204);}
+}
+
+h1 {
+    text-align: center;
+    font-size: 5vw;
+    margin: 10px 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #00fffb, #0488f5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a {
+    text-decoration: none; /* Remove underline */
+    color: #000; /* Change text color */
+    transition: color 0.3s; /* Smooth transition for hover */
+    position: relative;
+    z-index: 10;
+}
+
+a:hover {
+    color: #ff0000; /* Change color on hover */
+}
+
+
+#top-balloons {
+    transform: scale(1.5);
+    position: absolute;
+    top: 5%; /* Adjust position for responsiveness */
+}
+
+#balloon {
+    width: 20vw; /* Responsive width */
+    max-width: 150px; /* Set a max size */
+    position: absolute;
+    top: 60%; /* Starting point */
+    transform: scale(0.5);
+    animation: float 4s ease-in-out infinite; /* Apply animation */
+}
+
+.left {
+    width: 15vw;
+    max-width: 100px;
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+    left: 10%;
+    top: 60%;
+}
+
+.right {
+    width: 15vw;
+    max-width: 100px;
+    position: absolute;
+    animation: float 4s ease-in-out infinite;
+    right: 10%;
+    top: 60%;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100px);
+    }
+    50% {
+        transform: translateY(-400px); /* Subtle upward movement */
+    }
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+#whole {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height for centering */
+    margin: 0; /* Remove default margin */
+}
+
+#title {
+    margin-top: 20px; /* Add space above */
+    font-size: 36px; /* Increased font size */
+    text-align: center; /* Center text */
+}
+
+#bluck {
+    font-size: 40px; /* Responsive font size */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #7c7878, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center; /* Center text */
+}
+
+#info {
+    font-size: 16px; /* Responsive font size */
+    text-align: center; /* Center text */
+    margin-top: 10px; /* Space above */
+}
+
+
+
